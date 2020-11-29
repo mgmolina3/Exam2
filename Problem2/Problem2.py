@@ -1,18 +1,22 @@
 def palindromes(s: str) -> int:
-    d = dict()
+    if s is None:
+        return 0
+    if len(s) == 1:
+        return 1
+
+    centerRight = len(s) // 2
+    centerLeft = centerRight-1
     p = len(s)
-    i = 2
-    while len(s) != 1:
-        while i <= len(s):
-            sub = s[0:i]
-            if sub in d:
-                p += 1 if d[sub] else 0
-            else:
-                p += 1 if isPalindrome(s) else 0
-                d[sub] = isPalindrome(s)
-            i += 1
-        s = s[1:]
-        i = 2
+   
+    while centerRight != len(s):
+        if s[centerRight] == s[centerLeft]:
+            p += 1
+            if centerRight == len(s)-1 and len(s)%2 != 0:
+                p += 1
+        if centerLeft != 0:
+            centerLeft -= 1
+        centerRight += 1
+        
     return p
 
 def isPalindrome(s: str) -> bool:
@@ -21,7 +25,7 @@ def isPalindrome(s: str) -> bool:
 def main():
     print(palindromes("abc")) # 3
     print(palindromes("aaa")) # 6
-    print(palindromes("nellen")) # 6
+    print(palindromes("nellen")) # 9
 
 if __name__==("__main__"):
     main()
