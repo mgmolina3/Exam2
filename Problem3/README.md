@@ -9,7 +9,7 @@ The function should return the number of arithmetic slices in the array A.
 
 This problem can be defined recursively in the following way:
 Input: A = [1,2,3,4,5]
-First we have out base cases:
+First we have our base cases:
 if len(A) < 3, return 0
 if len(A) == 3, return 1 if we have verfied that it is an arithmetic slice, else 0. We verify this by checking if A[1] - A[0] == A[2] - A[1]
 if len(A) is > 3, we do the following:
