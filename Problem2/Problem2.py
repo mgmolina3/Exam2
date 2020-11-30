@@ -19,9 +19,6 @@ def palindromes(s: str) -> int:
         
     return p
 
-def isPalindrome(s: str) -> bool:
-    return s == s[::-1]
-
 def main():
     print(palindromes("abc")) # 3
     print(palindromes("aaa")) # 6
